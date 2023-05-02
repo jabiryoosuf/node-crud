@@ -14,22 +14,25 @@ const user=[
         place:"chelari"
     }
 ]
+
 // all view
 app.get('/user', (req, res) => {
-    res.send(user);
+    res.send(user)
   });
+
 // single view
   app.get('/user/:id', (req, res) => {
     const userid = parseInt(req.params.id)
     const singleuser = user.filter((u) => u.id === userid);
     console.log(singleuser);
-    res.send(singleuser);
+    res.send(singleuser)
   });
+
 // create 
   app.post('/user/new', express.json(), (req, res) => {
     const userdata = req.body
-    user.push(userdata)
     console.log(userdata);
+    user.push(userdata)
     res.send(userdata);
   });
 

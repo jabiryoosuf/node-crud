@@ -30,14 +30,14 @@ app.get('/user', async (req, res) => {
   app.post('/user/new', express.json(),async (req, res) => {
     const userdata = req.body
    const user= await User.create(userdata)
-    res.send(user);
+    res.send(user)
   });
 
   // update 
   app.put('/user/update/:id', express.json(),async (req, res) => {
     const userid = req.params.id
     const data = req.body
-   const updateuser = await User.findByIdAndUpdate (userid, data,{new:true})
+   const updateuser = await User.findByIdAndUpdate(userid, data,{new:true})
     res.send(updateuser);
   });
 
