@@ -1,6 +1,7 @@
 import  express  from "express";
 import dbconnection from "./dbconnection/db.js";
 import userRouter from "./routes/userroute.js"
+import "dotenv/config"
 
 const app=express()
 const port =4000;

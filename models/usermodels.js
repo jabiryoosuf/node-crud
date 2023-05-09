@@ -2,9 +2,21 @@ import mongoose from "mongoose";
 
 // Define the user schema and model using Mongoose
 const userSchema = new mongoose.Schema({
-    name: String,
-    place: String,
-    password:String
+    email:{
+      type: String,
+      unique:true,
+      required:true
+    },
+    username:{
+      type:String,
+      unique:true,
+      required:true
+    },
+    password:{
+      required:true,
+      type :String
+    }
+
   });
   
   const User = mongoose.model("User", userSchema);

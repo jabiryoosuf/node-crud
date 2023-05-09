@@ -1,12 +1,15 @@
 import  Express  from "express";
-import {userCreate, userSingleGet, usersget} from "../controllers/userController";
+import {userCreate, userDelete, userLogin, userSingleGet, userUpdate, usersget} from "../controllers/userController.js";
 const userRoute=Express()
 
 userRoute.get('/user',usersget)
 userRoute.get('/user/:id',userSingleGet)
-userRoute.post('/user/new',userCreate)
-userRoute.put('/user/update/:id')
-userRoute.delete('/user/delete/:id')
+userRoute.post('/user/signup',userCreate)
+userRoute.put('/user/update/:id',userUpdate)
+userRoute.delete('/user/delete/:id',userDelete)
+
+userRoute.post('/user/login',userLogin)
+
 
 export default userRoute 
 
