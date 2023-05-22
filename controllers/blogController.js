@@ -28,8 +28,15 @@ export async function  blogget(req,res){
   
  export  async function  blogCreate(req,res){
     try {
-        const usedata=req.body
-        const blog=await createBlog(usedata)
+        const blogdata=req.body
+        console.log(blogdata);
+
+        const file = req.file;
+        console.log(file);
+        if (!file) {
+          return res.status(400).json({ message: 'No files were uploaded.' });
+        }
+        const blog=await createBlog(blogdata,file)
         res.send(blog)
     } catch (error) {
         console.log(error);
